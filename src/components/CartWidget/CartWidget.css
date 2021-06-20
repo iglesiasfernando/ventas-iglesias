@@ -1,5 +1,9 @@
 .shoppingCart{
-    float : right;
-    padding: 3px;
-    color : brown
+    padding: 6px;
+    color : white;
+    font-size: 35px!important;
+}
+
+.right{
+    right: 0%;
 }

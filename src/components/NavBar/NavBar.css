@@ -1,6 +1,11 @@
 
 .navBar{
     width : 100%;
-    height : 30px;
-    background : grey
+    height : 80px;
+    background : black;
+    display : flex;
+    color: white!important;
+    position: relative;
+    font-size: 27px!important;
+
 }

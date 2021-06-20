@@ -13,6 +13,19 @@
   }
 }
 
+.white{
+  color: white!important;
+}
+.right10{
+  right: 10%;
+}
+.centerVertical{
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
