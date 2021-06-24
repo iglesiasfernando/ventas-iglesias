@@ -16,7 +16,7 @@ function NabVar() {
             <Breadcrumbs aria-label="breadcrumb" className="white right10 centerVertical">
                 {categoryList.map((element,index) => {
                     return (
-                                <Link id={index} className="white right10" href="/" onClick={categoryClick}>
+                                <Link key={index} id={index} className="white right10" href="/" onClick={categoryClick}>
                                     {element}
                                 </Link>
                 

@@ -42,14 +42,14 @@ function ItemCount({initialStock,initial,onAdd}) {
     return (
       <div>
         <div>
-        <IconButton aria-label="delete" color="secundary"  onClick={ subtractCount}>
+        <IconButton aria-label="delete"  onClick={ subtractCount}>
           <RemoveIcon />
         </IconButton>
         <Button variant="outlined" color="primary">
          {count}
 
          </Button>
-          <IconButton aria-label="delete" color="secundary" onClick={ addCount }>
+          <IconButton aria-label="delete" onClick={ addCount }>
 
           <AddIcon />
           </IconButton>

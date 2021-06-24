@@ -13,11 +13,17 @@
   }
 }
 
+.displayFlex{
+  display: flex;
+}
 .white{
   color: white!important;
 }
 .right10{
   right: 10%;
+}
+.marginBottom1{
+  margin-bottom: 1%;
 }
 .centerVertical{
   position: absolute;
