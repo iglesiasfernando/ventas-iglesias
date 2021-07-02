@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 function ItemListContainer() {
   //const [cantidad,setCantidad] = useState(0);
@@ -33,6 +34,8 @@ function ItemListContainer() {
          
            <ItemCount initialStock={5} initial={0} onAdd={ onAdd}></ItemCount>
           
+           <ItemDetailContainer ></ItemDetailContainer>
+
         </div>)
 }
 
