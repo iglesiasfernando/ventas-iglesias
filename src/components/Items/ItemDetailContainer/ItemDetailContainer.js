@@ -1,26 +1,46 @@
 import React, { useState,useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 function ItemDetailContainer() {
-  const [item,setItemDetail] = useState({});
-  const mockItemDetail = { id:1, title : "Producto 1", description: "Este producto es un jarron dibujado", price: "10", pictureUrl:"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" } ;
+  const [item,setItemDetail] = useState();
+  const { itemId } = useParams();
   
   useEffect(() => {
     var miPromise = new Promise(function(resolve, reject) {
       setTimeout(function(){
-          resolve(mockItemDetail); 
+        fetch('../mockData/productos.json'
+        ,{
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+        )
+          .then(function(response){
+            
+            return resolve(response.json())
+          })
         }, 2000);
       });
-      miPromise.then(function(item)  {
-        setItemDetail(item);          
+      miPromise.then(function(categoryList)  {
+        //esta busqueda es ineficiente pero es solo para la mock data
+        const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) != undefined);
+        const item = categorySearch.items.find(item => item.id == itemId);
+        if(item){
+          setItemDetail(item);          
+
+        }
       });
   }, []);
     
 
-
+    { 
+      // no muestro el itemDetail si el item esta en null 
+    }
     return (
-        <div >
-           <ItemDetail item = { item }/>
+        <div  >
+           { item ? <ItemDetail item = { item }/> : null}
            
         </div>)
 }

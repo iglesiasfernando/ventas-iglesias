@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NabVar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Items/ItemListContainer/ItemListContainer'
-import ItemCount from './components/Items/ItemCount/ItemCount';
+import ItemDetailContainer from './components/Items/ItemDetailContainer/ItemDetailContainer';
 
 import {
   BrowserRouter as Router,
@@ -16,7 +16,7 @@ function App() {
     <Router>
     <NabVar/>
     <div className="App">
-      <nav>
+      {/* <nav>
           <ul>
             <li>
               <Link to="/item/lista">Lista container</Link>
@@ -26,18 +26,18 @@ function App() {
             </li>
             
           </ul>
-        </nav>
+        </nav> */}
       
       <Switch>
         <Route exact path="/">
-            
-          </Route>
-          <Route path="/item/lista">
-            <ItemListContainer />
-          </Route>
-          <Route path="/item/listaSola">
-            <ItemCount />
-          </Route>
+          <ItemListContainer />
+        </Route>
+        <Route path="/category/:categoryId">
+          <ItemListContainer />
+        </Route>
+        <Route path="/item/:itemId">
+          <ItemDetailContainer/>
+        </Route>
           
       </Switch>
     </div>

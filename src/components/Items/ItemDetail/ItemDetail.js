@@ -30,7 +30,7 @@ function ItemDetail({item}) {
                 </Typography>
                 
                 <Typography variant="h4">${item.price}</Typography>
-                <Typography variant="body2" color="textSecondary" alignContent="flex-end">
+                <Typography variant="body2" color="textSecondary">
                   ID: {item.id}
                 </Typography>
               </Grid>

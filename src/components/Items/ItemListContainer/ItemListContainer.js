@@ -2,11 +2,12 @@ import React, { useState,useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
 function ItemListContainer() {
-  //const [cantidad,setCantidad] = useState(0);
   const [itemList,setItemList] = useState([]);
-  const tempItemList = [{ id:1, title : "Producto 1", description: "Descripcion 1", price: "10", pictureUrl:"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },{ id:2, title : "Producto 2", description: "Descripcion 2", price: "20", pictureUrl:"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },{ id:3, title : "Producto 3", description: "Descripcion 3", price: "30", pictureUrl:"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },{ id:4, title : "Producto 4", description: "Descripcion 4", price: "40", pictureUrl:"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" } ];
+  const { categoryId } = useParams();
+
 
   const onAdd = (cantidadVar) => {
     //setCantidad(0);
@@ -16,14 +17,31 @@ function ItemListContainer() {
   
   useEffect(() => {
     var miPromise = new Promise(function(resolve, reject) {
-      setTimeout(function(){
-          resolve(tempItemList); 
+      setTimeout(function(){ 
+          //obtengo la data de un json con productos
+          fetch('../mockData/productos.json'
+          ,{
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          }
+          )
+            .then(function(response){
+              return resolve(response.json())
+            })
+
+           
         }, 2000);
       });
       miPromise.then(function(items)  {
-        setItemList([...items]);          
+        //aplico el filtro client side porque es mock data
+        let category = items.filter( category => category.id == categoryId)[0]
+        if(category){
+          setItemList([...category.items]);          
+        }
       });
-  }, []);
+  }, [categoryId]);
     
 
 
@@ -34,7 +52,7 @@ function ItemListContainer() {
          
            <ItemCount initialStock={5} initial={0} onAdd={ onAdd}></ItemCount>
           
-           <ItemDetailContainer ></ItemDetailContainer>
+           {/* <ItemDetailContainer ></ItemDetailContainer>  solo para test*/}
 
         </div>)
 }

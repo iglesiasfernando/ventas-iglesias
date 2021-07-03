@@ -5,6 +5,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { useStyles } from './CardStyle'
+import NavLink from 'react-router-dom/NavLink'
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 function Item({item }) {
   const classes = useStyles()
@@ -25,7 +28,9 @@ return (
           </Typography>
         </CardContent>
         <div className={classes.controls}>
-         
+        <CardActions>
+          <NavLink className = "noDecoration" to={"/item/"+item.id}><Button size="small">Ver mas</Button></NavLink>
+        </CardActions>
         </div>
       </div>
       <CardMedia
@@ -34,6 +39,7 @@ return (
         title="Live from space album cover"
       />
     </Card>
+  
   
 
  
