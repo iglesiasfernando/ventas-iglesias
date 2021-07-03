@@ -25,21 +25,23 @@ function ItemDetailContainer() {
       });
       miPromise.then(function(categoryList)  {
         //esta busqueda es ineficiente pero es solo para la mock data
-        const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) != undefined);
+        const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) !== undefined);
         const item = categorySearch.items.find(item => item.id == itemId);
         if(item){
           setItemDetail(item);          
 
         }
       });
-  }, []);
+  }, [itemId]);
     
 
-    { 
-      // no muestro el itemDetail si el item esta en null 
-    }
+   
     return (
-        <div  >
+      
+        <div  > 
+          { 
+          // no muestro el itemDetail si el item esta en null 
+        }
            { item ? <ItemDetail item = { item }/> : null}
            
         </div>)

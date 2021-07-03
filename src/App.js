@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import NabVar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Items/ItemListContainer/ItemListContainer'
@@ -8,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 function App() {
