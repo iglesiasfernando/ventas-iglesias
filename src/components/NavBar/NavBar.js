@@ -9,7 +9,7 @@ function NabVar() {
     const categoryList = [{"id" : 1 ,"description" : "Vidrio"} ,{ "id":2 ,"description":"Ceramica"},{ "id":3 ,"description":"Metal"}];
    
     return (
-        <div  className="navBar">
+        <div  className="navBar marginBottom1">
             <Link className ="centerVertical" to = "/"><img width="250px" alt="brand" src="/brand.png"></img></Link>
 
             <Breadcrumbs aria-label="breadcrumb" className="white right10 centerVertical">
