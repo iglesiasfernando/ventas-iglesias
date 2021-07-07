@@ -41,6 +41,8 @@ function ItemCount({initialStock,initial,onAdd}) {
     }
     return (
       <div>
+
+        
         <div>
         <IconButton aria-label="delete"  onClick={ subtractCount}>
           <RemoveIcon />

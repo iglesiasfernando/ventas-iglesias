@@ -1,8 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
-
+const useParams = require("react-router-dom").useParams;
 function ItemListContainer() {
   const [itemList,setItemList] = useState([]);
   const { categoryId } = useParams();
@@ -30,7 +29,7 @@ function ItemListContainer() {
               return response.json();
               })
               .then(function(items) {
-                let category = items.filter( category => category.id == categoryId)[0]
+                let category = items.filter( category => category.id === categoryId)[0]
                 if(category){
                   setItemList([...category.items]);          
                 }

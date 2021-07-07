@@ -5,9 +5,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { useStyles } from './CardStyle'
-import NavLink from 'react-router-dom/NavLink'
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+
+const NavLink = require("react-router-dom").NavLink;
 
 function Item({item }) {
   const classes = useStyles()

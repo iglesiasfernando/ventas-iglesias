@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
+const useParams = require("react-router-dom").useParams;
 
 function ItemDetailContainer() {
   const [item,setItemDetail] = useState();
@@ -21,8 +21,8 @@ function ItemDetailContainer() {
             return response.json()
           }).then(function(categoryList){
             //esta busqueda es ineficiente pero es solo para la mock data
-            const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) !== undefined);
-            const item = categorySearch.items.find(item => item.id == itemId);
+            const categorySearch = categoryList.find(category => category.items.find(item => item.id === itemId) !== undefined);
+            const item = categorySearch.items.find(item => item.id === itemId);
             if(item){
               setItemDetail(item);          
             }

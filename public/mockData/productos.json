@@ -1,21 +1,21 @@
 [
-    { "id" : 1, "description" : "Vidrio", "items" : [
-        { "id":1, "title" : "Vidrio 1", "description": "Descripcion producto de vidrio 1", "price": "10", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":2, "title" : "Vidrio 2", "description": "Descripcion producto de vidrio 2", "price": "20", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":3, "title" : "Vidrio 3", "description": "Descripcion producto de vidrio 3", "price": "30", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":4, "title" : "Vidrio 4", "description": "Descripcion producto de vidrio 4", "price": "40", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
+    { "id" : "1", "description" : "Vidrio", "items" : [
+        { "id":"1", "title" : "Vidrio 1", "description": "Descripcion producto de vidrio 1", "price": "10", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"2", "title" : "Vidrio 2", "description": "Descripcion producto de vidrio 2", "price": "20", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"3", "title" : "Vidrio 3", "description": "Descripcion producto de vidrio 3", "price": "30", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"4", "title" : "Vidrio 4", "description": "Descripcion producto de vidrio 4", "price": "40", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
         ]  },
-    { "id" : 2, "description" : "Ceramica", "items" : [
-        { "id":5, "title" : "Ceramica 1", "description": "Descripcion producto de ceramica 1", "price": "50", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":6, "title" : "Ceramica 2", "description": "Descripcion producto de ceramica 2", "price": "60", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":7, "title" : "Ceramica 3", "description": "Descripcion producto de ceramica 3", "price": "70", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":8, "title" : "Ceramica 4", "description": "Descripcion producto de ceramica 4", "price": "80", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
+    { "id" : "2", "description" : "Ceramica", "items" : [
+        { "id":"5", "title" : "Ceramica 1", "description": "Descripcion producto de ceramica 1", "price": "50", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"6", "title" : "Ceramica 2", "description": "Descripcion producto de ceramica 2", "price": "60", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"7", "title" : "Ceramica 3", "description": "Descripcion producto de ceramica 3", "price": "70", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"8", "title" : "Ceramica 4", "description": "Descripcion producto de ceramica 4", "price": "80", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
         ]  },
-    { "id" : 3, "description" : "Metal", "items" : [
-        { "id":9, "title" : "Metal 1", "description": "Descripcion producto de metal 1", "price": "90", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":10, "title" : "Metal 2", "description": "Descripcion producto de metal 2", "price": "95", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":11, "title" : "Metal 3", "description": "Descripcion producto de metal 3", "price": "98", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
-        { "id":12, "title" : "Metal 4", "description": "Descripcion producto de metal 4", "price": "99", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
+    { "id" : "3", "description" : "Metal", "items" : [
+        { "id":"9", "title" : "Metal 1", "description": "Descripcion producto de metal 1", "price": "90", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"10", "title" : "Metal 2", "description": "Descripcion producto de metal 2", "price": "95", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"11", "title" : "Metal 3", "description": "Descripcion producto de metal 3", "price": "98", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" },
+        { "id":"12", "title" : "Metal 4", "description": "Descripcion producto de metal 4", "price": "99", "pictureUrl":"https://cdn5.dibujos.net/dibujos/pintados/202008/una-flor-en-un-jarron-naturaleza-flores-11707997.jpg" }
         ]  }
 
 ]
