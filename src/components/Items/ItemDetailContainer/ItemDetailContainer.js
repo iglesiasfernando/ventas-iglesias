@@ -7,7 +7,6 @@ function ItemDetailContainer() {
   const { itemId } = useParams();
   
   useEffect(() => {
-    var miPromise = new Promise(function(resolve, reject) {
       setTimeout(function(){
         fetch('../mockData/productos.json'
         ,{
@@ -19,19 +18,18 @@ function ItemDetailContainer() {
         )
           .then(function(response){
             
-            return resolve(response.json())
+            return response.json()
+          }).then(function(categoryList){
+            //esta busqueda es ineficiente pero es solo para la mock data
+            const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) !== undefined);
+            const item = categorySearch.items.find(item => item.id == itemId);
+            if(item){
+              setItemDetail(item);          
+            }
           })
+          
         }, 2000);
-      });
-      miPromise.then(function(categoryList)  {
-        //esta busqueda es ineficiente pero es solo para la mock data
-        const categorySearch = categoryList.find(category => category.items.find(item => item.id == itemId) !== undefined);
-        const item = categorySearch.items.find(item => item.id == itemId);
-        if(item){
-          setItemDetail(item);          
-
-        }
-      });
+      
   }, [itemId]);
     
 

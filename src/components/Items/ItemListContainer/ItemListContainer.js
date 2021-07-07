@@ -15,7 +15,6 @@ function ItemListContainer() {
 
   
   useEffect(() => {
-    var miPromise = new Promise(function(resolve, reject) {
       setTimeout(function(){ 
           //obtengo la data de un json con productos
           fetch('../mockData/productos.json'
@@ -27,19 +26,18 @@ function ItemListContainer() {
           }
           )
             .then(function(response){
-              return resolve(response.json())
-            })
-
+              
+              return response.json();
+              })
+              .then(function(items) {
+                let category = items.filter( category => category.id == categoryId)[0]
+                if(category){
+                  setItemList([...category.items]);          
+                }
+              });
            
         }, 2000);
-      });
-      miPromise.then(function(items)  {
-        //aplico el filtro client side porque es mock data
-        let category = items.filter( category => category.id == categoryId)[0]
-        if(category){
-          setItemList([...category.items]);          
-        }
-      });
+     
   }, [categoryId]);
     
 
