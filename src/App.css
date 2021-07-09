@@ -22,6 +22,13 @@
 .right10{
   right: 10%;
 }
+.grid{
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+}
+.pointer{
+  cursor: pointer!important;
+}
 .marginBottom1{
   margin-bottom: 1%;
 }

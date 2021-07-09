@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
 const useParams = require("react-router-dom").useParams;
 function ItemListContainer() {
@@ -7,10 +6,7 @@ function ItemListContainer() {
   const { categoryId } = useParams();
 
 
-  const onAdd = (cantidadVar) => {
-    //setCantidad(0);
-    alert("Se agregaron " + Number(cantidadVar)  +" elementos a tu compra")
-  }
+  
 
   
   useEffect(() => {
@@ -28,11 +24,21 @@ function ItemListContainer() {
               
               return response.json();
               })
-              .then(function(items) {
-                let category = items.filter( category => category.id === categoryId)[0]
-                if(category){
-                  setItemList([...category.items]);          
+              .then(function(fullCategoryList) {
+                if(categoryId){
+                  let category = fullCategoryList.filter( category => category.id === categoryId)[0]
+                  if(category){
+                    setItemList([...category.items]);          
+                  }
                 }
+                else{
+                  let fullList = [];
+                  fullCategoryList.forEach(category => {
+                    fullList = [...fullList,...category.items];
+                  });
+                  setItemList([...fullList]);          
+                }
+               
               });
            
         }, 2000);
@@ -46,7 +52,6 @@ function ItemListContainer() {
            
            <ItemList itemsList={ itemList }/>
          
-           <ItemCount initialStock={5} initial={0} onAdd={ onAdd}></ItemCount>
           
            {/* <ItemDetailContainer ></ItemDetailContainer>  solo para test*/}
 

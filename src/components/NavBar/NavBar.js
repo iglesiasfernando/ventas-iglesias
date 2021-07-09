@@ -16,7 +16,7 @@ function NabVar() {
             <Breadcrumbs aria-label="breadcrumb" className="white right10 centerVertical">
                 {categoryList.map((element,index) => {
                     return (
-                                <NavLink key={index} id={index} className="white right10 noDecoration" to={"/category/" + element.id } >
+                                <NavLink key={index} id={index} className="white right10 noDecoration pointer" to={"/category/" + element.id } >
                                     {element.description}   
                                 </NavLink>
                 

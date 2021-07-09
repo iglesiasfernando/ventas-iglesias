@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 
 function ItemList({itemsList}) {
     return (
-      <div className="displayFlex">
+      <div className="grid">
         {
         itemsList.map(element => {
           
