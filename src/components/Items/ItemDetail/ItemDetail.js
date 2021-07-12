@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import ItemCount from '../ItemCount/ItemCount';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import { useStyles } from './ItemDetailStyle'
 
+const NavLink = require("react-router-dom").NavLink;
+
 function ItemDetail({item}) {
+
+  const [itemQuantity,setItemQuantity] = useState();
+
     const classes = useStyles()
     const onAdd = (cantidadVar) => {
-      //setCantidad(0);
-      alert("Se agregaron " + Number(cantidadVar)  +" elementos a tu compra")
+      if(cantidadVar <= item.stock){
+        setItemQuantity(cantidadVar)
+      }
+      else{
+        alert("Stock insuficiente")
+      }
     }
     return (
         <div className={classes.root}>
@@ -43,7 +54,18 @@ function ItemDetail({item}) {
             </Grid>
           </Grid>
         </Paper>
-        <ItemCount initialStock={5} initial={0} onAdd={ onAdd}></ItemCount>
+        { itemQuantity ?  
+        <NavLink
+            to={"/cart"}
+            className = "noDecoration">
+            <Button 
+            variant="outlined"
+            color="primary"
+            className = "marginTop2">Finalizar compra
+            </Button>
+          </NavLink> : <ItemCount initialStock={item.stock} initial={0} onAdd={ onAdd}></ItemCount>}
+
+        
     </div>    
      
     );

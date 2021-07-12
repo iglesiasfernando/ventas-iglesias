@@ -13,6 +13,9 @@
   }
 }
 
+.marginTop2{
+  margin-top: 2%!important;
+}
 .displayFlex{
   display: flex;
 }
