@@ -1,28 +1,39 @@
-import React, { useState }  from 'react';
+import React, { useState,useContext }  from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import ItemCount from '../ItemCount/ItemCount';
 import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
 
 import { useStyles } from './ItemDetailStyle'
+import {CartContext} from '../../../contexts/CartContext'
 
 const NavLink = require("react-router-dom").NavLink;
 
 function ItemDetail({item}) {
 
-  const [itemQuantity,setItemQuantity] = useState();
+    const [itemQuantity,setItemQuantity] = useState();
+    const cartContext = useContext(CartContext)
 
     const classes = useStyles()
     const onAdd = (cantidadVar) => {
       if(cantidadVar <= item.stock){
-        setItemQuantity(cantidadVar)
+        if(!cartContext.isInCart(item)){
+          cartContext.addItem({ item:item, quantity:cantidadVar})
+          setItemQuantity(cantidadVar)
+
+        }
+        else{
+          cartContext.removeItem(item)
+          alert("Ya se agregó el item al carrito")
+        }
       }
       else{
         alert("Stock insuficiente")
       }
+     
+      
     }
     return (
         <div className={classes.root}>
