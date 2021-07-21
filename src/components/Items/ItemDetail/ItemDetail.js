@@ -7,7 +7,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import Button from '@material-ui/core/Button';
 
 import { useStyles } from './ItemDetailStyle'
-import {CartContext} from '../../../contexts/CartContext'
+import { CartContext } from '../../../contexts/CartContext'
 
 const NavLink = require("react-router-dom").NavLink;
 
@@ -19,15 +19,15 @@ function ItemDetail({item}) {
     const classes = useStyles()
     const onAdd = (cantidadVar) => {
       if(cantidadVar <= item.stock){
-        if(!cartContext.isInCart(item)){
+        //if(!cartContext.isInCart(item)){
           cartContext.addItem({ item:item, quantity:cantidadVar})
           setItemQuantity(cantidadVar)
 
-        }
-        else{
-          cartContext.removeItem(item)
-          alert("Ya se agregó el item al carrito")
-        }
+        // }
+        // else{
+        //   cartContext.removeItem(item)
+        //   alert("Ya se agregó el item al carrito")
+        // }
       }
       else{
         alert("Stock insuficiente")
@@ -70,9 +70,9 @@ function ItemDetail({item}) {
             to={"/cart"}
             className = "noDecoration">
             <Button 
-            variant="outlined"
-            color="primary"
-            className = "marginTop2">Finalizar compra
+              variant="outlined"
+              color="primary"
+              className = "marginTop2">Finalizar compra
             </Button>
           </NavLink> : <ItemCount initialStock={item.stock} initial={0} onAdd={ onAdd}></ItemCount>}
 

@@ -4,6 +4,7 @@ import './App.css';
 import NabVar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Items/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/Items/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
 import { CartContext } from './contexts/CartContext';
 
 import {
@@ -16,10 +17,18 @@ function App() {
   const [cartItems, setCartItems] = useState([])
 
   const addItem = (item) => {
-    setCartItems([...cartItems,item])
+    let itemSearch = cartItems.filter(element => element.item.id === item.item.id)[0]
+    if(itemSearch){
+      itemSearch.quantity += item.quantity
+      setCartItems([...cartItems])
+
+    }
+    else{
+      setCartItems([...cartItems,item])
+    }
   }
-  const removeItem = (item) => {
-    const newList = cartItems.filter((element) => element.id === item.id);
+  const removeItem = (id) => {
+    const newList = cartItems.filter((element) => element.id === id);
     setCartItems(newList)
     
   }
@@ -28,6 +37,7 @@ function App() {
       setCartItems([])
     
   }
+ 
   const isInCart = (item) => {
     const itemSearch = cartItems.filter(element => element.item.id === item.id)[0]
     if(itemSearch){
@@ -41,7 +51,11 @@ function App() {
 }
   return (
     <Router>
-    <NabVar/>
+      <CartContext.Provider value = {{ cartItems }} >
+
+         <NabVar/>
+      </CartContext.Provider>
+
     <div className="App">
       
       {/* <nav>
@@ -59,6 +73,13 @@ function App() {
       <Switch>
         <Route exact path="/">
           <ItemListContainer />
+        </Route>
+        <Route exact path="/cart">
+        <CartContext.Provider value = {{ removeItem,cartItems }} >
+
+          <Cart/>
+        </CartContext.Provider>
+
         </Route>
         <Route path="/category/:categoryId">
           <ItemListContainer />
