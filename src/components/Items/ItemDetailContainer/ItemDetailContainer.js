@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { getFirestone } from '../../../firebase'
+
 const useParams = require("react-router-dom").useParams;
 
 function ItemDetailContainer() {
@@ -7,29 +9,17 @@ function ItemDetailContainer() {
   const { itemId } = useParams();
   
   useEffect(() => {
-      setTimeout(function(){
-        fetch('../mockData/productos.json'
-        ,{
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        }
-        )
-          .then(function(response){
-            
-            return response.json()
-          }).then(function(categoryList){
-            //esta busqueda es ineficiente pero es solo para la mock data
-            const categorySearch = categoryList.find(category => category.items.find(item => item.id === itemId) !== undefined);
-            const item = categorySearch.items.find(item => item.id === itemId);
-            if(item){
-              setItemDetail(item);          
-            }
-          })
-          
-        }, 2000);
-      
+    const db = getFirestone()
+      const itemList = db.collection('items').where('id','==',itemId)
+      itemList.get().then((query) => {
+        let item = query.docs.map(doc => doc.data())[0]
+        setItemDetail(item);    
+      }).catch(err => {
+        console.log('Error getting documents', err);
+      });
+
+    
+    
   }, [itemId]);
     
 
