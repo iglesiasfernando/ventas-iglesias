@@ -3,6 +3,7 @@ import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import './CartWidget.css'; // Tell webpack that Button.js uses these styles
 import {CartContext} from '../../contexts/CartContext'
 import Badge from '@material-ui/core/Badge';
+const NavLink = require("react-router-dom").NavLink;
 
 
 function CartWidget() {
@@ -17,7 +18,9 @@ function CartWidget() {
                     return elem1 + elem2.quantity
                     },0)
                     } color="primary">
-                    <ShoppingCart className="shoppingCart" ></ShoppingCart>  
+                    <NavLink className = "noDecoration" to={"/cart"}><ShoppingCart className="shoppingCart" ></ShoppingCart></NavLink>
+
+                      
                 </Badge> : null
                 
             }
