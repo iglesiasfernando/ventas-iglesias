@@ -18,6 +18,12 @@
 .marginTop2{
   margin-top: 2%!important;
 }
+.marginTop1{
+  margin-top: 1%!important;
+}
+.marginLeft1{
+  margin-left: 1%!important;
+}
 .displayFlex{
   display: flex;
 }
@@ -26,6 +32,9 @@
 }
 .right10{
   right: 10%;
+}
+.right{
+  right: 0%;
 }
 .grid{
   display: inline-grid;
@@ -62,7 +71,9 @@
 .noDecoration{
   text-decoration: none;
 }
-
+.width100{
+  width: 100%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

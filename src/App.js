@@ -75,7 +75,7 @@ function App() {
           <ItemListContainer />
         </Route>
         <Route exact path="/cart">
-        <CartContext.Provider value = {{ removeItem,cartItems }} >
+        <CartContext.Provider value = {{ removeItem,cartItems,clear }} >
 
           <Cart/>
         </CartContext.Provider>
