@@ -62,6 +62,8 @@ function Cart() {
                 },0)
         }).then((responseInsert) => {
             //actualizo stocks a mano xq no tenemos una api
+            alert("Se genero la compra con identificador: "+responseInsert.id)
+
             const itemRef = db.collection("items");
             cartContext.cartItems.map(element => {
                 itemRef.doc(element.item.serverId).update({
